@@ -1,4 +1,6 @@
 push 4
-pall
-swap
+pint
+pop
+pint
+push 5
 pall
