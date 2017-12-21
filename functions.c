@@ -38,7 +38,7 @@ void pall(stack_t **stack, unsigned int line_number)
 	tmp = *stack;
 	if (!tmp)
 	{
-		printf("Stack is NULL");
+		printf("Stack is NULL\n");
 		exit(EXIT_FAILURE);
 	}
 
@@ -49,14 +49,16 @@ void pall(stack_t **stack, unsigned int line_number)
 	}
 }
 
-/*
+
 void pint(stack_t **stack, int line_number)
 {
 	if (stack == NULL)
-		printf("L<%d>: can't pint, stack empty", line_number);
+		printf("L<%d>: can't pint, stack empty\n", line_number);
 	else
-		printf("%n\n", (*stack)->n); 
+		printf("%d\n", (*stack)->n); 
 }
+
+/*
 void pop(stack_t **stack, int line_number)
 {
 

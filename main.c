@@ -61,10 +61,15 @@ int main(int argc, char *argv[])
 					{
 						num = strtok(NULL, " \t\n");
 						data = atoi(num);
-					}
+					}	
 					break;
-				}
+				}			
 				i++;
+			}
+			if (codez[i].opcode == NULL)
+			{
+				printf("L<%d>: unknown instruction <%s>\n", lc, op_token);
+				exit(EXIT_FAILURE);
 			}
 		/* printf("check 5\n"); */
 			codez[i].f(&stack, lc);
