@@ -22,8 +22,9 @@ int main(int argc, char *argv[])
 		{"pint", pint},
 		{"pop", pop},
 		{"swap", swap},
-	/*	{"add", add},*/
+		{"add", add},
 		{"nop", nop},
+		{"#", nop}, 
 		{NULL, NULL}
 	};
 
@@ -33,8 +34,6 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	/* printf("check 1\n"; */
-
 	file = fopen(str, "r");
 	if (!file)
 	{
@@ -42,11 +41,8 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	/* printf("check 2\n"); */
-
 	while (getline(&line, &len, file) != -1)
 	{
-		/* printf("check 3\n"); */
 		lc++;
 		op_token = strtok(line, " \t\n");
 		if (op_token)
@@ -54,29 +50,26 @@ int main(int argc, char *argv[])
 			i = 0;
 			while (codez[i].opcode)
 			{
-				/* printf("check 4\n"); */
 				if (strcmp(codez[i].opcode, op_token) == 0)
 				{
 					if (strcmp("push", op_token) == 0)
 					{
-						num = strtok(NULL, " \t\n");
-						data = atoi(num);
+						num = strtok(NULL, " \r\t");
+						if (int_check(num))
+							data = atoi(num);
 					}
 					break;
-				}			
+				}
 				i++;
 			}
 			if (codez[i].opcode == NULL)
 			{
 				printf("L<%d>: unknown instruction <%s>\n", lc, op_token);
-				exit(EXIT_FAILURE);
+                        	exit(EXIT_FAILURE);
 			}
-		/* printf("check 5\n"); */
 			codez[i].f(&stack, lc);
-		/* printf("check 5 and a half::::::: %d\n", stack->n); */
 		}
 	}
-	/* printf("check 6\n"); */
 	fclose(file);
 	if (line)
 		free(line);

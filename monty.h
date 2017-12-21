@@ -50,5 +50,7 @@ void pop(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 int numbers_only(const char *s);
 size_t list_len(stack_t *stack);
+void free_node(stack_t **stack);
+int int_check(char *data_n);
 
 #endif

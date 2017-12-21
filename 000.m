@@ -4,3 +4,5 @@ pop
 pint
 push 5
 pall
+add
+pint
