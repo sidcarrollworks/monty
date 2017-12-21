@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
 				{
 					if (strcmp("push", op_token) == 0)
 					{
-						num = strtok(NULL, " \t\r\n");
+						num = strtok(NULL, " \t\n");
 						data = atoi(num);
 					}
 					break;
