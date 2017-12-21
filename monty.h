@@ -52,5 +52,7 @@ int numbers_only(const char *s);
 size_t list_len(stack_t *stack);
 void free_node(stack_t **stack);
 int int_check(char *data_n);
+void free_dlistint(stack_t *head);
+
 
 #endif
