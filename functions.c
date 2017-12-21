@@ -9,6 +9,7 @@ void push_stack(stack_t **stack, unsigned int line_number)
 	if (isdigit(data))
 	{
 		printf("L<%d: usage: push integer\n", line_number);
+		free_dlistint(*stack);
 		exit(EXIT_FAILURE);
 	}
 
@@ -16,6 +17,7 @@ void push_stack(stack_t **stack, unsigned int line_number)
 	if (!new_node)
 	{
 		printf("Error: malloc failed");
+		free_dlistint(*stack);
 		exit(EXIT_FAILURE);
 	}
 
@@ -39,6 +41,7 @@ void pall(stack_t **stack, unsigned int line_number)
 	if (!tmp)
 	{
 		printf("Stack is NULL\n");
+		free_dlistint(*stack);
 		exit(EXIT_FAILURE);
 	}
 
@@ -55,6 +58,7 @@ void pint(stack_t **stack, unsigned int line_number)
 	if (*stack == NULL)
 	{
 		printf("L<%d>: can't pint, stack empty\n", line_number);
+		free_dlistint(*stack);
 		exit(EXIT_FAILURE);
 	}
 	else
@@ -68,6 +72,7 @@ void pop(stack_t **stack, unsigned int line_number)
 	if (*stack == NULL)
 	{
 		printf("L<%d>: can't pop an empty stack\n", line_number);
+		free_dlistint(*stack);
 		exit(EXIT_FAILURE);
 	}
 
@@ -91,6 +96,7 @@ void swap(stack_t **stack, unsigned int line_number)
 	if (list_len(*stack) < 2)
 	{
 		printf("L<%d>: can't swap, stack too\n", line_number);
+		free_dlistint(*stack);
 		exit(EXIT_SUCCESS);
 	}
 
