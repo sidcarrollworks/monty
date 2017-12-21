@@ -19,8 +19,8 @@ int main(int argc, char *argv[])
 	instruction_t codez[] = {
 		{"push", push_stack},
 		{"pall", pall},
-	/*	{"pint", pTop},
-		{"pop", pop},
+		{"pint", pint},
+	/*	{"pop", pop},
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},*/
@@ -61,7 +61,7 @@ int main(int argc, char *argv[])
 					{
 						num = strtok(NULL, " \t\n");
 						data = atoi(num);
-					}	
+					}
 					break;
 				}			
 				i++;
