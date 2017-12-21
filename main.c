@@ -49,24 +49,27 @@ int main(int argc, char *argv[])
 		/* printf("check 3\n"); */
 		lc++;
 		op_token = strtok(line, " \t\n");
-		i = 0;
-		while (codez[i].opcode)
+		if (op_token)
 		{
-			/* printf("check 4\n"); */
-			if (strcmp(codez[i].opcode, op_token) == 0)
+			i = 0;
+			while (codez[i].opcode)
 			{
-				if (strcmp("push", op_token) == 0)
+				/* printf("check 4\n"); */
+				if (strcmp(codez[i].opcode, op_token) == 0)
 				{
-					num = strtok(NULL, " \t\r\n");
-					data = atoi(num);
+					if (strcmp("push", op_token) == 0)
+					{
+						num = strtok(NULL, " \t\r\n");
+						data = atoi(num);
+					}
+					break;
 				}
-				break;
+				i++;
 			}
-			i++;
-		}
 		/* printf("check 5\n"); */
-		codez[i].f(&stack, lc);
+			codez[i].f(&stack, lc);
 		/* printf("check 5 and a half::::::: %d\n", stack->n); */
+		}
 	}
 	/* printf("check 6\n"); */
 	fclose(file);
