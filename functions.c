@@ -61,18 +61,51 @@ void pint(stack_t **stack, unsigned int line_number)
 		printf("%d\n", (*stack)->n); 
 }
 
-/*
-void pop(stack_t **stack, int line_number)
+void pop(stack_t **stack, unsigned int line_number)
 {
+	stack_t *tmp;
 
+	if (*stack == NULL)
+	{
+		printf("L<%d>: can't pop an empty stack\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	tmp = *stack;
+	tmp = tmp->next;
+
+	if ((*stack)->next->next == NULL)
+		*stack = NULL;
+
+	(*stack)->next = (*stack)->next->next->next;
+	(*stack)->next->prev = NULL;
+
+	free(tmp);
 }
-void swap(stack_t **stack, int line_number)
+
+void swap(stack_t **stack, unsigned int line_number)
 {
+	stack_t *tmp1;
 
+	if (list_len(*stack) < 2)
+	{
+		printf("L<%d>: can't swap, stack too\n", line_number);
+		exit(EXIT_SUCCESS);
+	}
+
+	tmp1 = (*stack)->next;
+
+	(*stack)->next = tmp1->next;
+	(*stack)->prev = tmp1;
+
+	tmp1->next = (*stack);
+	tmp1->prev = NULL;
+
+	*stack = tmp1;
 }
 
-void nop(stack_t **stack, int line_number)
+void nop(stack_t **stack, unsigned int line_number)
 {
-	data = 0;
+	(void) stack;
+	(void) line_number;
 }
-*/

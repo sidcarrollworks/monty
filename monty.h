@@ -49,5 +49,6 @@ void add(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 int numbers_only(const char *s);
+size_t list_len(stack_t *stack);
 
 #endif
