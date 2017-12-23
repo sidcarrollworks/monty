@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 		{NULL, NULL}
 	};
 
-	if (argc != 2 || access(argv[1], F_OK) == -1)
+	if (argc != 2)
 	{
 		printf("USAGE: monty file\n");
 		exit(EXIT_FAILURE);
