@@ -1,5 +1,3 @@
-pall
-push 2
-pall
-push 3
+#push 2
+push 1
 pall

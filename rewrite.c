@@ -26,7 +26,6 @@ int main(int argc, char *argv[])
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},
-		{"#", nop}, 
 		{NULL, NULL}
 	};
 
@@ -46,6 +45,8 @@ int main(int argc, char *argv[])
 	while (getline(&line, &len, file) != -1 && status != 1)
 	{
 		lc++;
+		if ( line[0] == '#')
+			continue;
 		op_token = strtok(line, " \t\n");
 		if (op_token)
 		{
