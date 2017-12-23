@@ -71,7 +71,7 @@ int main(int argc, char *argv[])
 							free(line);
 							exit(EXIT_FAILURE);
 						}
-					}	
+					}
 					break;
 				}
 				i++;
@@ -79,8 +79,9 @@ int main(int argc, char *argv[])
 			if (codez[i].opcode == NULL)
 			{
 				printf("L%d: unknown instruction %s\n", lc, op_token);
-                        	status = 1;
+                        	exit(EXIT_FAILURE);
 			}
+			
 			codez[i].f(&stack, lc);
 		}
 	}
