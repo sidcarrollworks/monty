@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
 							data = atoi(num);
 						if (catch == 1)
 						{
-							printf("L<%d>: usage: push integer\n", lc);
+							printf("L%d: usage: push integer\n", lc);
 							fclose(file);
 							free(line);
 							exit(EXIT_FAILURE);
@@ -78,7 +78,7 @@ int main(int argc, char *argv[])
 			}
 			if (codez[i].opcode == NULL)
 			{
-				printf("L<%d>: unknown instruction <%s>\n", lc, op_token);
+				printf("L%d: unknown instruction %s\n", lc, op_token);
                         	status = 1;
 			}
 			codez[i].f(&stack, lc);
