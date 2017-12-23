@@ -1,2 +1,5 @@
-push 1
-puhs 2
+pall
+push 2
+pall
+push 3
+pall
