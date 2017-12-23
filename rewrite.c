@@ -16,6 +16,7 @@ int main(int argc, char *argv[])
 	int i = 0;
 	char *num = NULL;
 	int status = 0;
+	int catch = 0;
 
 	instruction_t codez[] = {
 		{"push", push_stack},
@@ -59,14 +60,18 @@ int main(int argc, char *argv[])
 					{
 						/* printf("\t\tcheck 3\n"); */
 						num = strtok(NULL, " \t\n");
+						if (num == NULL)
+							catch = 1;
 						if (int_check(num))
 							data = atoi(num);
-						else
+						if (catch == 1)
 						{
 							printf("L<%d>: usage: push integer\n", lc);
-							status = 1;
+							fclose(file);
+							free(line);
+							exit(EXIT_FAILURE);
 						}
-					}
+					}	
 					break;
 				}
 				i++;
