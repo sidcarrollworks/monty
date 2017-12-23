@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 	if (!file)
 	{
 		printf("ERROR: Can't open file %s\n", str);
-		status = 1;
+		exit(EXIT_FAILURE);
 	}
 
 	while (getline(&line, &len, file) != -1 && status != 1)
